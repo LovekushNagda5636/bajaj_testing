@@ -14,6 +14,11 @@ public class BfhlController {
     @Autowired
     private BfhlService bfhlService;
 
+    @GetMapping("/")
+    public String home() {
+        return "API is running. Use /health or /bfhl endpoints.";
+    }
+
     @PostMapping("/bfhl")
     public ResponseEntity<BfhlResponse> processData(@RequestBody BfhlRequest request) {
         BfhlResponse response = bfhlService.processData(request);
